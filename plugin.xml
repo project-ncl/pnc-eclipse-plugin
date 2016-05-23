@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+         <dynamic
+               class="com.redhat.eclipseDependencyAnalysis.handlers.DependencyAnalysis"
+               id="com.redhat.dependencyAnalysisThird.dynamic1">
+         </dynamic>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">
+         <dynamic
+               class="com.redhat.eclipseDependencyAnalysis.handlers.DependencyAnalysis"
+               id="com.redhat.dependencyAnalysisThird.dynamic2">
+         </dynamic>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.redhat.dependencyAnalysisThird.command1"
+            name="DACommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.redhat.eclipseDependencyAnalysis.handlers.CreateDA"
+            commandId="com.redhat.dependencyAnalysisThird.command1">
+      </handler>
+   </extension>
+
+</plugin>
